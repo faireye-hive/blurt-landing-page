@@ -632,7 +632,7 @@
         };
 
         // Current language
-        let currentLang = 'pt';
+        let currentLang = 'en';
 
         // Function to change language
         function changeLanguage(lang) {
