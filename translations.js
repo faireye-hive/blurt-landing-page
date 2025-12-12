@@ -7,6 +7,13 @@
  */
 export const translations = {
   pt: {
+    // Menu Section
+    head_menu_home: "Início",
+    head_menu_features: "Recursos",
+    head_menu_stats: "Estatísticas",
+    head_menu_guide: "Guia",
+    head_menu_resources: "Recursos",
+    head_menu_register: "Criar Conta",
     // Hero Section
     hero_title: "A Blockchain de Mídia Social Descentralizada",
     hero_subtitle:
@@ -28,27 +35,33 @@ export const translations = {
     loading: "Carregando...",
 
     // Features
-    features_title: "Recursos da Blurt",
+    features_title: "Recursos da Blurt Blockchain",
     features_subtitle:
-      "A Blurt Blockchain oferece uma plataforma completa para criação, compartilhamento e monetização de conteúdo de forma descentralizada.",
-    feature1_title: "Recompensas em Criptomoeda",
+      "A Blurt é uma blockchain que serve como base tecnológica para a criação de redes sociais descentralizadas.",
+
+    feature1_title: "Sistema de recompensas nativo",
     feature1_text:
-      "Crie conteúdo e seja recompensado com tokens BLURT. Quanto mais engajamento seu conteúdo gerar, maiores serão suas recompensas.",
-    feature2_title: "Censura Resistente",
+      "Sistema nativo de distribuição de tokens baseado em Blurt Power, permitindo votar em conteúdos e receber recompensas pelas interações sociais.",
+
+    feature2_title: "Resistência à censura",
     feature2_text:
-      "Conteúdos publicados na Blurt são armazenados em uma blockchain descentralizada, tornando quase impossível a censura ou remoção por terceiros.",
-    feature3_title: "Transações Rápidas",
+      "Conteúdos publicados na Blurt são armazenados de forma imutável na blockchain, tornando a censura ou remoção difícil.",
+
+    feature3_title: "Transações rápidas",
     feature3_text:
-      "Com tempo de bloco de apenas 3 segundos, a Blurt oferece uma experiência de usuário rápida e responsiva para todas as interações.",
-    feature4_title: "Sistema de Governança",
+      "Com tempo de bloco de aproximadamente 3 segundos, a Blurt oferece uma experiência rápida e responsiva para todas as interações.",
+
+    feature4_title: "Validação de blocos",
     feature4_text:
-      "Participe da governança da rede Blurt votando em testemunhas (witnesses) que validam transações e propõem melhorias para a rede.",
-    feature5_title: "Carteira Integrada",
+      "Sistema de validação baseado em testemunhas (witnesses), responsáveis por produzir blocos e validar transações na rede.",
+
+    feature5_title: "Governança descentralizada",
     feature5_text:
-      "Cada conta Blurt vem com uma carteira integrada para armazenar, enviar e receber tokens BLURT, além de negociar no mercado interno.",
-    feature6_title: "Comunidade Ativa",
+      "Cada usuário pode votar nas testemunhas que o representam utilizando seu Blurt Power, participando ativamente da governança da rede.",
+
+    feature6_title: "Comunidade ativa",
     feature6_text:
-      "Junte-se a uma comunidade global de criadores de conteúdo, desenvolvedores e entusiastas de criptomoedas que valorizam a liberdade de expressão.",
+      "Uma comunidade global de criadores de conteúdo, desenvolvedores e entusiastas que valorizam a descentralização e a liberdade de expressão.",
 
     // Stats
     stats_title: "Blurt em Números",
@@ -57,7 +70,7 @@ export const translations = {
     stat1_label: "Milhões de Blocos",
     stat2_label: "Mil Contas",
     stat3_label: "Segundos por Bloco",
-    stat4_label: "Testemunhas Ativas",
+    stat4_label: "Testemunhas do consenso",
 
     // Guide
 
@@ -158,6 +171,13 @@ export const translations = {
       "Dica: Use o WhaleVault para uma experiência mais segura e fácil na Blurt!",
   },
   en: {
+    // Menu Section
+    head_menu_home: "Home",
+    head_menu_features: "Features",
+    head_menu_stats: "Stats",
+    head_menu_guide: "Guide",
+    head_menu_resources: "Resources",
+    head_menu_register: "Create Account",
     // Hero Section
     hero_title: "The Decentralized Social Media Blockchain",
     hero_subtitle:
@@ -179,27 +199,33 @@ export const translations = {
     loading: "Loading...",
 
     // Features
-    features_title: "Blurt Features",
+    features_title: "Blurt Blockchain Features",
     features_subtitle:
-      "The Blurt Blockchain offers a complete platform for creating, sharing and monetizing content in a decentralized way.",
-    feature1_title: "Cryptocurrency Rewards",
+      "Blurt is a blockchain that serves as the technological foundation for building decentralized social networks.",
+
+    feature1_title: "Native reward system",
     feature1_text:
-      "Create content and be rewarded with BLURT tokens. The more engagement your content generates, the greater your rewards.",
-    feature2_title: "Censorship Resistant",
+      "A native token distribution system based on Blurt Power, allowing users to vote on content and earn rewards through social interactions.",
+
+    feature2_title: "Censorship resistance",
     feature2_text:
-      "Content published on Blurt is stored on a decentralized blockchain, making censorship or removal by third parties almost impossible.",
-    feature3_title: "Fast Transactions",
+      "Content published on Blurt is stored immutably on the blockchain, making censorship or removal extremely difficult.",
+
+    feature3_title: "Fast transactions",
     feature3_text:
-      "With a block time of just 3 seconds, Blurt offers a fast and responsive user experience for all interactions.",
-    feature4_title: "Governance System",
+      "With an average block time of around 3 seconds, Blurt delivers a fast and responsive user experience for all interactions.",
+
+    feature4_title: "Block validation",
     feature4_text:
-      "Participate in Blurt network governance by voting for witnesses who validate transactions and propose network improvements.",
-    feature5_title: "Integrated Wallet",
+      "A validation system based on witnesses, who are responsible for producing blocks and validating transactions on the network.",
+
+    feature5_title: "Decentralized governance",
     feature5_text:
-      "Each Blurt account comes with an integrated wallet to store, send and receive BLURT tokens, as well as trade on the internal market.",
-    feature6_title: "Active Community",
+      "Each user can vote for the witnesses who represent them using their Blurt Power, actively participating in network governance.",
+
+    feature6_title: "Active community",
     feature6_text:
-      "Join a global community of content creators, developers and cryptocurrency enthusiasts who value freedom of expression.",
+      "A global community of content creators, developers, and enthusiasts who value decentralization and freedom of expression.",
 
     // Stats
     stats_title: "Blurt in Numbers",
@@ -208,7 +234,7 @@ export const translations = {
     stat1_label: "Million Blocks",
     stat2_label: "Thousand Accounts",
     stat3_label: "Seconds per Block",
-    stat4_label: "Active Witnesses",
+    stat4_label: "Consensus Witnesses",
 
     // Guide
     guide_title: "Beginner's Guide",
