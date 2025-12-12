@@ -1,7 +1,7 @@
 // imports o objeto translations
 import { translations } from './translations.js'; 
 
-let currentLang = "pt";
+let currentLang = "en";
 
 export function getCurrentLang() {
     return currentLang;

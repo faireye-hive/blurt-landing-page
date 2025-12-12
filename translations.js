@@ -63,6 +63,8 @@ export const translations = {
     feature6_text:
       "Uma comunidade global de criadores de conteúdo, desenvolvedores e entusiastas que valorizam a descentralização e a liberdade de expressão.",
 
+
+
     // Stats
     stats_title: "Blurt em Números",
     stats_subtitle:
@@ -164,11 +166,16 @@ export const translations = {
     footer_link13: "Telegram",
     footer_link14: "Twitter",
     footer_link15: "Site Oficial",
-    footer_rights: "Todos os direitos reservados.",
+    footer_rights: "Todos os direitos reservados por @bgo.",
     footer_open_source:
       "A Blurt é uma blockchain de código aberto e descentralizada.",
     footer_tip:
       "Dica: Use o WhaleVault para uma experiência mais segura e fácil na Blurt!",
+    resources_blurtstats_description:"Estimativa de curation.",
+    resources_blurtmedia_description: "Compartilhe video",
+    resources_microblog_description: "Focado para conteudo pequenos, parecido com o X",
+    resources_beblurt_description: "Plataforma de blogging descentralizada para publicar conteúdo.",
+
   },
   en: {
     // Menu Section
@@ -324,9 +331,14 @@ export const translations = {
     footer_link13: "Telegram",
     footer_link14: "Twitter",
     footer_link15: "Official Site",
-    footer_rights: "All rights reserved.",
+    footer_rights: "All rights reserved @bgo.",
     footer_open_source: "Blurt is an open source and decentralized blockchain.",
     footer_tip:
       "Tip: Use WhaleVault for a safer and easier experience on Blurt!",
+      resources_blurtstats_description: "Estimated curation rewards.",
+resources_blurtmedia_description: "Share videos.",
+resources_microblog_description: "Focused on short-form content, similar to X.",
+resources_beblurt_description: "A decentralized blogging platform for publishing content.",
+
   },
 };
