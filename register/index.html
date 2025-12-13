@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://blurtplugin.online/account/img/favicon.png" type="image/x-icon">
+
+  <!-- 🟢 Open Graph -->
+  <meta property="og:title" content="Create your BLURT account" />
+  <meta property="og:description" content="Register your free Blurt blockchain account in seconds. Encrypted keys, optional email backup, and voucher support included." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blurtplugin.online/account/" />
+  <meta property="og:image" content="https://blurtplugin.online/account/img/account_creator.png" />
+  <meta property="og:image:alt" content="Blurt Account Creation" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- 💬 Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Create your BLURT account">
+  <meta name="twitter:description" content="Register your free Blurt blockchain account in seconds.">
+  <meta name="twitter:image" content="https://blurtplugin.online/account/img/account_creator.png">
+
+  <title>BLURT Account Creation</title>
+  
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- hCaptcha -->
+  <script src='https://js.hcaptcha.com/1/api.js' async defer></script>
+  
+  <!-- Google tag (gtag.js) -->
+  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6KHJM5QPR"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F6KHJM5QPR');
+  </script>
+  
+  <style>
+    :root {
+      --primary-color: #2d6ff7;
+      --primary-dark: #1e56d9;
+      --secondary-color: #7c3aed;
+      --accent-color: #10b981;
+      --dark-color: #1e293b;
+      --light-color: #f8fafc;
+      --gray-color: #64748b;
+      --gray-light: #e2e8f0;
+      --danger-color: #ef4444;
+      --warning-color: #f59e0b;
+      --success-color: #10b981;
+      --border-radius: 12px;
+      --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6f8ff 0%, #f0f4ff 100%);
+      color: var(--dark-color);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    .header {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 40px;
+    }
+    
+    .back-link {
+      color: var(--gray-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .back-link:hover {
+      color: var(--primary-color);
+    }
+    
+    .lang-switch {
+      background: var(--light-color);
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark-color);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .lang-switch:hover {
+      border-color: var(--primary-color);
+    }
+    
+    /* Main Container */
+    .main-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .page-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--dark-color);
+      position: relative;
+    }
+    
+    .page-title h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .page-title p {
+      color: var(--gray-color);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Content Layout */
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (max-width: 992px) {
+      .content-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Left Panel - Info */
+    .info-panel {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--box-shadow);
+      height: fit-content;
+    }
+    
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark-color);
+    }
+    
+    .panel-title i {
+      color: var(--primary-color);
+    }
+    
+    .info-box {
+      background: var(--light-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .info-box h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--dark-color);
+    }
+    
+    .info-box p {
+      color: var(--gray-color);
+      margin-bottom: 1rem;
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .tool-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+    
+    .tool-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-color);
+    }
+    
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-color);
+      border-radius: 10px;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .tool-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--dark-color);
+    }
+    
+    .app-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .app-links img {
+      height: 40px;
+      transition: var(--transition);
+    }
+    
+    .app-links img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Right Panel - Form */
+    .form-panel {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .form-section {
+      margin-bottom: 2rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark-color);
+    }
+    
+    .form-control-custom {
+      border: 1px solid var(--gray-light);
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+      width: 100%;
+    }
+    
+    .form-control-custom:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(45, 111, 247, 0.1);
+    }
+    
+    .input-group-custom {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .input-group-custom .form-control-custom {
+      flex: 1;
+    }
+    
+    .btn {
+      padding: 0.875rem 1.5rem;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: var(--gray-light);
+      color: var(--dark-color);
+    }
+    
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
+    
+    .btn-success {
+      background: var(--success-color);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background: #0da271;
+    }
+    
+    .btn-check {
+      white-space: nowrap;
+    }
+    
+    .status-message {
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .status-available {
+      color: var(--success-color);
+    }
+    
+    .status-taken {
+      color: var(--danger-color);
+    }
+    
+    .status-checking {
+      color: var(--warning-color);
+    }
+    
+    .status-default {
+      color: var(--gray-color);
+    }
+    
+    .checkbox-custom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 1rem 0;
+    }
+    
+    .checkbox-custom input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary-color);
+    }
+    
+    .checkbox-custom label {
+      font-weight: 500;
+      cursor: pointer;
+    }
+    
+    .key-field {
+      position: relative;
+    }
+    
+    .key-field .form-control-custom {
+      padding-right: 40px;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+    
+    .copy-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--gray-color);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .copy-btn:hover {
+      color: var(--primary-color);
+    }
+    
+    .key-section {
+      background: var(--light-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border: 1px dashed var(--gray-light);
+    }
+    
+    .key-section h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+      font-size: 1.2rem;
+      color: var(--dark-color);
+    }
+    
+    .key-section h3 i {
+      color: var(--primary-color);
+    }
+    
+    .key-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .key-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .form-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-light);
+    }
+    
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-light);
+    }
+    
+    .social-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 200px;
+    }
+    
+    .social-title {
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: var(--light-color);
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icon:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .social-icon:hover img {
+      filter: brightness(0) invert(1);
+    }
+    
+    .social-icon img {
+      height: 22px;
+      transition: var(--transition);
+    }
+    
+    /* Alert */
+    .alert-custom {
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .alert-warning {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      color: #92400e;
+    }
+    
+    .alert-danger {
+      background: #fee2e2;
+      border: 1px solid #ef4444;
+      color: #991b1b;
+    }
+    
+    .alert-success {
+      background: #d1fae5;
+      border: 1px solid #10b981;
+      color: #065f46;
+    }
+    
+    /* Maintenance Notice */
+    #maintenance_notice {
+      margin: 1rem auto;
+      max-width: 1200px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .page-title h1 {
+        font-size: 2rem;
+      }
+      
+      .content-wrapper {
+        gap: 1.5rem;
+      }
+      
+      .info-panel, .form-panel {
+        padding: 1.5rem;
+      }
+      
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .input-group-custom {
+        flex-direction: column;
+      }
+      
+      .btn-check {
+        width: 100%;
+      }
+      .fa-brands{
+        width: fit-content;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="https://blurtplugin.online/account/img/logo.png" alt="BLURT Logo">
+        <span>BLURT</span>
+      </a>
+      
+      <div class="d-flex align-items-center gap-3">
+        <a href="/" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          <span data-i18n="interface.back">Back to main page</span>
+        </a>
+        
+        <select id="lang-switch" class="lang-switch">
+          <option value="en">English</option>
+          <option value="pl">Polski</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Maintenance Notice -->
+  <div id="maintenance_notice" class="alert-custom alert-warning" style="display:none;">
+    <i class="fas fa-exclamation-triangle"></i>
+    <div>
+      <strong>Maintenance Notice</strong>
+      <p class="mb-0">This form is currently running in test mode. Maintenance in progress.</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="page-title">
+      <h1 data-i18n="form.title">BLURT Account Creator</h1>
+      <p data-i18n="interface.description">Register your free Blurt blockchain account in seconds. Encrypted keys, optional email backup, and voucher support included.</p>
+    </div>
+
+    <div class="content-wrapper">
+      <!-- Left Panel - Information -->
+      <div class="info-panel">
+        <div class="panel-title">
+          <i class="fas fa-info-circle"></i>
+          <span>Account Security Information</span>
+        </div>
+        
+        <div class="info-box">
+          <h3>Secure Key Storage</h3>
+          <p data-i18n="interface.key_info">To store your keys safely and conveniently while using the blurt network install WhaleVault extension for:</p>
+          
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <a href="https://chromewebstore.google.com/detail/whalevault/hcoigoaekhfajcoingnngmfjdidhmdon?pli=1" target="_blank" >
+
+                <i class="fab fa-chrome"></i>
+                </a>
+              </div>
+              <span class="tool-name">Chrome</span>
+            </div>
+            
+            <div class="tool-item">
+              <div class="tool-icon">
+                <a href="https://addons.mozilla.org/pl/firefox/addon/whalevault/" target="_blank" >
+                <i class="fab fa-firefox"></i>
+                </a>
+              </div>
+              <span class="tool-name">Firefox</span>
+            </div>
+            
+            <div class="tool-item">
+              <div class="tool-icon">
+                <a href="https://chromewebstore.google.com/detail/whalevault/hcoigoaekhfajcoingnngmfjdidhmdon?pli=1" target="_blank" >
+                <i class="fab fa-brave fa-firefox"></i>
+            </a>
+              </div>
+              <span class="tool-name">Brave</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3 data-i18n="interface.key_mobile">Mobile App</h3>
+          <p>Manage your BLURT account on the go with our mobile app:</p>
+          
+          <div class="app-links">
+            <a href="https://play.google.com/store/apps/details?id=com.blurtkey" target="_blank">
+              <i class="fa-brands fa-google-play fa-3x"></i>
+            </a>
+            <a href="https://apps.apple.com/jp/app/imt-ase-blurtkey/id6448778419?l=en-US" target="_blank">
+              <i class="fa-brands fa-app-store fa-3x"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3>Why Choose BLURT?</h3>
+          <ul style="padding-left: 1.2rem; color: var(--gray-color);">
+            <li>Free account creation</li>
+            <li>Decentralized content platform</li>
+            <li>Rewards for content creators</li>
+            <li>No censorship</li>
+            <li>Fast and scalable blockchain</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Panel - Form -->
+      <div class="form-panel">
+        <form id="form_id" enctype="multipart/form-data">
+          <!-- Username Section -->
+          <div class="form-section">
+            <label for="username" class="form-label" data-i18n="form.label_name">BLURT Account Username</label>
+            <div class="input-group-custom">
+              <input id="username" type="text" class="form-control-custom" name="username" 
+                     maxlength="16" required
+                     placeholder="e.g., john.doe"
+                     onblur="checkUsernameAvailability()">
+              <button type="button" class="btn btn-secondary btn-check" onclick="checkUsernameAvailability()" data-i18n="form.check_av">
+                <i class="fas fa-search"></i> Check
+              </button>
+            </div>
+            <small id="username-status" class="status-message status-default" data-i18n="form.username-status">
+              Enter a valid username and check availability.
+            </small>
+          </div>
+
+          <!-- Voucher Section -->
+          <div class="form-section">
+            <label for="voucher_code" class="form-label" data-i18n="form.voucher_label" >Voucher Code</label>
+            <input type="text" class="form-control-custom" id="voucher_code" name="voucher_code" 
+                   placeholder="Ex: BLURT7QKGBV8DT3Q7" required>
+            <small id="voucher-status" class="status-message status-default" data-i18n="form.voucher_info">
+              Enter a valid voucher code.
+            </small>
+          </div>
+
+          <!-- Email Option -->
+          <div class="checkbox-custom">
+            <input type="checkbox" id="skip_email" onchange="toggleEmailOption()">
+            <label for="skip_email" data-i18n="form.email_refuse">I don't want to receive keys by email.</label>
+          </div>
+
+          <div id="email_encrypt_section">
+            <div class="form-section">
+              <label for="encryptionEmail" class="form-label" data-i18n="form.email_placeholder">Your Email Address</label>
+              <input id="encryptionEmail" type="email" class="form-control-custom" name="email" 
+                     placeholder="name@example.com">
+            </div>
+            
+            <div class="form-section">
+              <label for="encryptionPassword" class="form-label" data-i18n="form.encryption_password">Encryption password for email message:</label>
+              <input id="encryptionPassword" type="password" class="form-control-custom" name="encryptionPassword" 
+                     placeholder="Choose a strong password">
+              <div class="alert-custom alert-danger mt-2" role="alert">
+                <i class="fas fa-exclamation-circle"></i>
+                <div data-i18n="form.alert-encryption">
+                  Used to encrypt the email that contains your keys. Only you can decrypt it thanks to this password so remember it!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Step Button -->
+          <div class="form-section">
+            <button type="button" class="btn btn-primary w-100" onclick="showKeySection()" data-i18n="form.step">
+              <i class="fas fa-arrow-right"></i> Next Step: Generate Keys
+            </button>
+          </div>
+
+          <!-- Keys Section (Initially Hidden) -->
+          <div id="keys-section" style="display: none;">
+            <div class="key-section">
+              <h3><i class="fas fa-key"></i> Generated Keys</h3>
+              
+              <div class="key-grid">
+                <div class="form-section">
+                  <label class="form-label" data-i18n="form.master">Master Password</label>
+                  <div class="key-field">
+                    <input id="password" type="text" class="form-control-custom" name="master" readonly>
+                    <button type="button" class="copy-btn" onclick="copyToClipboard('password')">
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="form-section">
+                  <label class="form-label" data-i18n="form.owner">Owner Key</label>
+                  <div class="key-field">
+                    <input id="owner_key" type="text" class="form-control-custom" readonly>
+                    <button type="button" class="copy-btn" onclick="copyToClipboard('owner_key')">
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="form-section">
+                  <label class="form-label" data-i18n="form.active">Active Key</label>
+                  <div class="key-field">
+                    <input id="active_key" type="text" class="form-control-custom" readonly>
+                    <button type="button" class="copy-btn" onclick="copyToClipboard('active_key')">
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="form-section">
+                  <label class="form-label" data-i18n="form.posting">Posting Key</label>
+                  <div class="key-field">
+                    <input id="posting_key" type="text" class="form-control-custom" readonly>
+                    <button type="button" class="copy-btn" onclick="copyToClipboard('posting_key')">
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="form-section">
+                  <label class="form-label" data-i18n="form.memo">Memo Key</label>
+                  <div class="key-field">
+                    <input id="memo_key" type="text" class="form-control-custom" readonly>
+                    <button type="button" class="copy-btn" onclick="copyToClipboard('memo_key')">
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-section mt-3">
+                <button type="button" onclick="generateKeys();" class="btn btn-primary w-100" data-i18n="form.generate_keys">
+                  <i class="fas fa-key"></i> Generate Keys
+                </button>
+                <p class="text-center mt-2" style="color: var(--gray-color); font-size: 0.9rem;">
+                  Your keys will be automatically backed up to a file after generation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden Fields -->
+          <input type="hidden" id="encrypted_keys" name="encrypted_keys">
+          <input type="hidden" id="raw_keys" name="raw_keys">
+
+          <!-- Submit Button -->
+          <div class="form-footer">
+            <button type="submit" class="btn btn-success w-100" id="sent" style="display:none;" data-i18n="form.create_account_button">
+              <i class="fas fa-user-plus"></i> Create Account
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <div class="social-section">
+        <div class="social-title" data-i18n="interface.contact">Contact us:</div>
+        <div class="social-icons">
+          <a href="https://discord.com/invite/tHtubX6Kuz" class="socialicon social-icon" target="_blank" rel="noopener">
+            <i class="fa-brands fa-discord fa-2x"></i>
+          </a>
+          <a href="https://discord.gg/nVCYMckWuF" class="socialicon social-icon" target="_blank" rel="noopener">
+            <i class="fa-brands fa-discord fa-2x"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100088085075370" class="socialicon social-icon" target="_blank" rel="noopener nofollow">
+            <i class="fa-brands fa-square-facebook fa-2x"></i>
+          </a>
+          <a href="mailto:kontakt@blurt.pl" class="socialicon social-icon" target="_blank" rel="noopener nofollow">
+            <i class="fa-solid fa-at fa-2x"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="social-section">
+        <div class="social-title" data-i18n="interface.frontend_login">Login:</div>
+        <div class="social-icons">
+          <a href="https://blurt.blog" class="socialicon social-icon" target="_blank" rel="noopener dofollow">
+            <img src="https://imgp.blurt.world/768x0/https://blurtplugin.online/account/img/blurtblog.png" alt="Blurt Blog">
+          </a>
+          <a href="https://blurt.intinte.org" class="socialicon social-icon" target="_blank" rel="noopener dofollow">
+            <img src="https://imgp.blurt.world/768x0/https://blurtplugin.online/account/img/blurt.png" alt="Blurt PL">
+          </a>
+          <a href="https://beblurt.com" class="socialicon social-icon" target="_blank" rel="noopener dofollow">
+            <img src="https://imgp.blurt.world/768x0/https://blurtplugin.online/account/img/iconBB.svg" alt="BeBlurt">
+          </a>
+          <a href="https://blurb.blurt.blog/" class="socialicon social-icon" target="_blank" rel="noopener dofollow">
+            <i class="fa-brands fa-square-twitter fa-2x"></i>
+          </a>
+          <a href="https://blurt.media" class="socialicon social-icon" target="_blank" rel="noopener">
+            <i class="fa-brands fa-youtube fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@blurtfoundation/blurtjs/dist/blurt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+  <script src='js/lang.js'></script>
+  
+  <script>
+    // Initialize fake mode flag
+    window.fakeMode = false;
+    
+    // Simple clipboard copy function
+    function copyToClipboard(elementId) {
+      const element = document.getElementById(elementId);
+      element.select();
+      element.setSelectionRange(0, 99999); // For mobile devices
+      navigator.clipboard.writeText(element.value).then(() => {
+        const copyBtn = element.parentElement.querySelector('.copy-btn i');
+        const originalClass = copyBtn.className;
+        copyBtn.className = 'fas fa-check';
+        
+        setTimeout(() => {
+          copyBtn.className = originalClass;
+        }, 2000);
+      });
+    }
+    
+    // Check for maintenance mode on load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.fakeMode) {
+        document.getElementById('maintenance_notice').style.display = 'flex';
+      }
+    });
+  </script>
+  
+  <!-- Main JavaScript (simplified for the example) -->
+  <script src='js/script.js'></script>
+</body>
+</html>

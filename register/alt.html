@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta Blurt Blockchain</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ------------------------------------------- */
+      /* 1. RESET E BASE */
+      /* ------------------------------------------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 15px;
+        color: #333;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 850px;
+        background-color: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        margin-top: 20px;
+        flex-grow: 1;
+      }
+
+      header {
+        background: linear-gradient(to right, #1a2a6c, #b21f1f);
+        color: white;
+        padding: 25px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .blurt-logo {
+        color: #fdbb2d;
+      }
+
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+      }
+
+      .form-section,
+      .keys-section {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        color: #1a2a6c;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-left: 5px solid #b21f1f;
+        padding-left: 10px;
+      }
+
+      /* ------------------------------------------- */
+      /* 2. FORMULÁRIO E INPUTS */
+      /* ------------------------------------------- */
+
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        /* Garante que dois inputs fiquem lado a lado em telas maiores */
+        flex: 1 1 45%;
+        min-width: 280px;
+      }
+
+      /* O campo de e-mail ocupando a largura total na última linha do form */
+      .input-group.email-group {
+        flex: 1 1 100%;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #1a2a6c;
+        box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.15);
+      }
+
+      .password-info {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+
+      /* ------------------------------------------- */
+      /* 3. BOTÕES */
+      /* ------------------------------------------- */
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .btn {
+        flex-grow: 1;
+        min-width: 180px;
+        padding: 14px 25px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(to right, #1a2a6c, #b21f1f);
+        color: white;
+      }
+      .btn-success {
+        background: linear-gradient(to right, #28a745, #20c997);
+        color: white;
+      }
+      .btn-secondary {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      /* ------------------------------------------- */
+      /* 4. CHAVES GERADAS */
+      /* ------------------------------------------- */
+
+      .keys-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 10px;
+      }
+
+      .key-box {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 25px;
+        border-left: 4px solid #1a2a6c;
+        width: 100%;
+      }
+
+      .key-type strong {
+        color: #b21f1f;
+      }
+
+      .key-value.unified {
+        background: #f4f6fb;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+      }
+
+      .key-value.unified div {
+        margin-bottom: 5px;
+      }
+
+      .copy-btn {
+        background-color: #1a2a6c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+
+      /* ------------------------------------------- */
+      /* 5. FOOTER E UTILS */
+      /* ------------------------------------------- */
+
+      .alert {
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: none;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: white;
+        margin-top: 30px;
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .hidden-iframe {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: none;
+        visibility: hidden;
+      }
+
+      /* ------------------------------------------- */
+      /* 6. MEDIA QUERIES (MOBILE E AJUSTES) */
+      /* ------------------------------------------- */
+
+      @media (max-width: 650px) {
+        .form-row {
+          flex-direction: column;
+        }
+
+        .input-group {
+          min-width: 100%;
+        }
+
+        .button-group {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .btn {
+          min-width: 100%;
+        }
+
+        header h1 {
+          font-size: 2rem;
+          gap: 10px;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-key blurt-logo"></i> Criar Conta Blurt</h1>
+      </header>
+
+      <div class="main-content">
+        <div class="alert alert-info" id="infoAlert" style="display: flex;">
+          <i class="fas fa-info-circle"></i>
+          <strong>Como funciona:</strong> Gere as chaves localmente e envie
+          automaticamente para o Google Forms.
+        </div>
+
+        <div class="alert alert-success" id="successAlert">
+          <i class="fas fa-check-circle"></i> Chaves geradas com sucesso! Revise
+          as chaves abaixo.
+        </div>
+
+        <div class="alert alert-error" id="errorAlert">
+          <i class="fas fa-exclamation-circle"></i>
+          <span id="errorMessage"
+            >Erro ao gerar chaves. Verifique os dados informados.</span
+          >
+        </div>
+
+        <div class="form-section">
+          <h2 class="section-title">
+            <i class="fas fa-user-plus"></i> Informações da Nova Conta
+          </h2>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="username"
+                ><i class="fas fa-user"></i> Nome de Usuário Desejado</label
+              >
+              <input
+                type="text"
+                id="username"
+                placeholder="Ex: novousuario"
+                maxlength="16"
+              />
+              <div class="password-info">
+                Nome de usuário deve ter entre 3 e 16 caracteres (letras
+                minúsculas, números, pontos e hífens).
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="masterKey"
+                ><i class="fas fa-key"></i> Chave Mestra (Master Key)</label
+              >
+              <input
+                type="text"
+                id="masterKey"
+                placeholder="Sua chave mestra secreta"
+              />
+              <div class="password-info">
+                Esta chave será usada para gerar todas as outras chaves.
+                Mantenha-a em segredo!
+              </div>
+            </div>
+            
+            <div class="input-group email-group">
+              <label for="email"
+                ><i class="fas fa-envelope"></i> Email de Contato</label
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="Ex: novousuario@gmail.com"
+              />
+              <div class="password-info">
+                Usado para enviar o status da criação da sua conta.
+              </div>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-primary" id="generateKeys">
+              <i class="fas fa-cogs"></i> Gerar Chaves
+            </button>
+            <button class="btn btn-success" id="autoSubmitBtn" style="display: none;">
+              <i class="fas fa-robot"></i> Criar conta
+            </button>
+            <button class="btn btn-secondary" id="resetForm">
+              <i class="fas fa-redo"></i> Limpar Formulário
+            </button>
+          </div>
+        </div>
+
+        <div class="keys-section" id="keysSection" style="display: none">
+          <h2 class="section-title">
+            <i class="fas fa-key"></i> Chaves Geradas (SALVE!)
+          </h2>
+          <div class="keys-container" id="keysContainer">
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <iframe
+      name="hidden-iframe"
+      class="hidden-iframe"
+      id="hiddenIframe"
+    ></iframe>
+
+    <footer>
+      <p>Blurt Blockchain Account Creator</p>
+      <p>© 2023 - Esta ferramenta não é oficial da Blurt Foundation</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@blurtfoundation/blurtjs/dist/blurt.min.js"></script>
+    
+    <script>
+      // Elementos do DOM
+      const usernameInput = document.getElementById('username');
+      const masterKeyInput = document.getElementById('masterKey');
+      const emailInput = document.getElementById('email'); // Novo elemento de email
+      const generateKeysBtn = document.getElementById('generateKeys');
+      const resetFormBtn = document.getElementById('resetForm');
+      const autoSubmitBtn = document.getElementById('autoSubmitBtn');
+      const keysSection = document.getElementById('keysSection');
+      const keysContainer = document.getElementById('keysContainer');
+      const successAlert = document.getElementById('successAlert');
+      const errorAlert = document.getElementById('errorAlert');
+      const errorMessage = document.getElementById('errorMessage');
+      const infoAlert = document.getElementById('infoAlert');
+      const hiddenIframe = document.getElementById('hiddenIframe');
+
+      // Configurações do Google Forms (MANTENHA ESTES VALORES ATUALIZADOS)
+      const GOOGLE_FORM_ID = "1FAIpQLSeBPLEmuedXNS47lNelmDFSjOF3fMPniJskDn2zAyUxkQgOhQ"; // EXEMPLO - SUBSTITUA PELO SEU ID REAL
+      const form_username_entry = 'entry.1100252274';
+      const form_owner_entry = 'entry.151950422';
+      const form_active_entry = 'entry.191171928';
+      const form_posting_entry = 'entry.289209308';
+      const form_memo_entry = 'entry.230781060';
+      const form_email_entry = 'entry.299549097';
+
+      const GOOGLE_FORM_URL = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+      
+      // Variáveis globais para armazenar dados
+      let currentKeys = null;
+      let currentUsername = '';
+
+      // --- Funções de Validação ---
+
+      function validateUsername(username) {
+        const regex = /^[a-z][a-z0-9-.]*[a-z0-9]$/;
+        return username.length >= 3 && username.length <= 16 && regex.test(username);
+      }
+
+      function validateMasterKey(key) {
+        return key && key.length >= 8;
+      }
+      
+      function validateEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+      }
+
+      // --- Funções de Criptografia (dependem de blurtjs) ---
+
+      function generateKeys(username, masterKey) {
+        // Isso assume que blurt.auth.getPrivateKeys está disponível (verifique o script src)
+        const privateKeys = blurt.auth.getPrivateKeys(username, masterKey);
+
+        return {
+          owner: {
+            private: privateKeys.owner,
+            public: blurt.auth.wifToPublic(privateKeys.owner)
+          },
+          active: {
+            private: privateKeys.active,
+            public: blurt.auth.wifToPublic(privateKeys.active)
+          },
+          posting: {
+            private: privateKeys.posting,
+            public: blurt.auth.wifToPublic(privateKeys.posting)
+          },
+          memo: {
+            private: privateKeys.memo,
+            public: blurt.auth.wifToPublic(privateKeys.memo)
+          }
+        };
+      }
+
+      // --- Funções de Interface e Submissão ---
+
+      function displayKeys(username, keys) {
+        keysContainer.innerHTML = '';
+
+        const keyBox = document.createElement('div');
+        keyBox.className = 'key-box';
+
+        keyBox.innerHTML = `
+          <div class="key-type">
+              <i class="fas fa-key"></i> Chaves da Conta: <strong>${username}</strong>
+          </div>
+
+          <div class="key-value unified" id="allKeys">
+              <div><strong>Public:</strong></div>
+              <div>Posting: <span id="pubPosting">${keys.posting.public}</span></div>
+              <div>Active:  <span id="pubActive">${keys.active.public}</span></div>
+              <div>Owner:   <span id="pubOwner">${keys.owner.public}</span></div>
+              <div>Memo:    <span id="pubMemo">${keys.memo.public}</span></div>
+
+              <br>
+
+              <div style="color:#b21f1f"><strong>Private (NÃO COMPARTILHE):</strong></div>
+              <div>Posting: <span id="privPosting">${keys.posting.private}</span></div>
+              <div>Active:  <span id="privActive">${keys.active.private}</span></div>
+              <div>Owner:   <span id="privOwner">${keys.owner.private}</span></div>
+              <div>Memo:    <span id="privMemo">${keys.memo.private}</span></div>
+          </div>
+
+          <button class="copy-btn" id="copyAll">
+              <i class="fas fa-copy"></i> Copiar tudo
+          </button>
+        `;
+
+        keysContainer.appendChild(keyBox);
+
+        document.getElementById('copyAll').addEventListener('click', () => {
+          const text = document.getElementById('allKeys').innerText;
+          navigator.clipboard.writeText(text);
+        });
+
+        keysSection.style.display = 'block';
+        successAlert.style.display = 'flex';
+        errorAlert.style.display = 'none';
+        infoAlert.style.display = 'none';
+        
+        // Exibir o botão de criação de conta após a geração bem-sucedida
+        autoSubmitBtn.style.display = 'flex'; 
+      }
+      
+      // Função para enviar dados para o Google Forms via POST
+      function submitToGoogleForms(username, keys, email) {
+        return new Promise((resolve, reject) => {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          form.action = GOOGLE_FORM_URL;
+          form.target = 'hidden-iframe';
+          form.style.display = 'none';
+
+          // Adicionar campos ocultos (chaves públicas)
+          const fields = [
+              { name: form_username_entry, value: username },
+              { name: form_owner_entry, value: keys.owner.public },
+              { name: form_active_entry, value: keys.active.public },
+              { name: form_posting_entry, value: keys.posting.public },
+              { name: form_memo_entry, value: keys.memo.public },
+              { name: form_email_entry, value: email } // USANDO O EMAIL DIGITADO PELO USUÁRIO
+          ];
+
+          fields.forEach(field => {
+              const input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = field.name;
+              input.value = field.value;
+              form.appendChild(input);
+          });
+
+          document.body.appendChild(form);
+
+          // Listener de sucesso/falha
+          let submissionCompleted = false;
+          
+          // Função que resolve após a submissão (mesmo que com timeout)
+          const cleanupAndResolve = (result) => {
+              if (submissionCompleted) return;
+              submissionCompleted = true;
+              document.body.removeChild(form);
+              resolve(result);
+          }
+
+          hiddenIframe.onload = function() {
+              // O Google Forms retorna uma página de confirmação,
+              // mas não temos acesso ao conteúdo devido ao CORS/políticas.
+              // Assumimos o sucesso após o carregamento/timeout.
+              cleanupAndResolve({ success: true, message: 'Dados enviados com sucesso!' });
+          };
+
+          hiddenIframe.onerror = function() {
+              cleanupAndResolve({ success: false, message: 'Erro ao enviar dados. Tente manualmente.' });
+          };
+
+          form.submit();
+
+          // Timeout de segurança (para garantir que a promise resolva)
+          setTimeout(() => {
+              cleanupAndResolve({ success: true, message: 'Dados enviados (timeout de 5s).' });
+          }, 5000);
+        });
+      }
+
+
+      // --- Event Listeners ---
+
+      generateKeysBtn.addEventListener('click', async () => {
+        const username = usernameInput.value.trim();
+        const masterKey = masterKeyInput.value;
+        const email = emailInput.value.trim();
+
+        // 1. Validar campos
+        if (!validateUsername(username)) {
+          errorMessage.textContent = "Nome de usuário inválido. Use apenas letras minúsculas, números, pontos e hífens (3-16 caracteres).";
+          errorAlert.style.display = 'flex';
+          successAlert.style.display = 'none';
+          return;
+        }
+
+        if (!validateMasterKey(masterKey)) {
+          errorMessage.textContent = "Chave mestra muito curta. Use pelo menos 8 caracteres.";
+          errorAlert.style.display = 'flex';
+          successAlert.style.display = 'none';
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+            errorMessage.textContent = "Endereço de e-mail inválido.";
+            errorAlert.style.display = 'flex';
+            successAlert.style.display = 'none';
+            return;
+        }
+
+        // 2. Processar
+        generateKeysBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gerando Chaves...';
+        generateKeysBtn.disabled = true;
+
+        try {
+          currentKeys = generateKeys(username, masterKey);
+          currentUsername = username;
+          
+          displayKeys(username, currentKeys);
+
+        } catch (error) {
+          errorMessage.textContent = 'Erro ao gerar chaves: ' + (error.message || 'Verifique a chave mestra.');
+          errorAlert.style.display = 'flex';
+          successAlert.style.display = 'none';
+        } finally {
+          generateKeysBtn.innerHTML = '<i class="fas fa-cogs"></i> Gerar Chaves';
+          generateKeysBtn.disabled = false;
+        }
+      });
+
+      resetFormBtn.addEventListener('click', () => {
+        usernameInput.value = '';
+        masterKeyInput.value = '';
+        emailInput.value = '';
+
+        keysSection.style.display = 'none';
+        autoSubmitBtn.style.display = 'none'; // Oculta o botão de submit
+        successAlert.style.display = 'none';
+        errorAlert.style.display = 'none';
+        infoAlert.style.display = 'flex';
+
+        currentKeys = null;
+        currentUsername = '';
+      });
+
+      autoSubmitBtn.addEventListener('click', async () => {
+        const email = emailInput.value.trim();
+
+        if (!currentKeys || !currentUsername) {
+          errorMessage.textContent = "Nenhuma chave gerada. Por favor, gere as chaves primeiro.";
+          errorAlert.style.display = 'flex';
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+            errorMessage.textContent = "Endereço de e-mail inválido. Por favor, corrija.";
+            errorAlert.style.display = 'flex';
+            return;
+        }
+
+        autoSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        autoSubmitBtn.disabled = true;
+        generateKeysBtn.disabled = true; // Desabilita o botão de geração também
+
+        try {
+          const result = await submitToGoogleForms(currentUsername, currentKeys, email); // Passando o email!
+
+          if (result.success) {
+            successAlert.innerHTML = '<i class="fas fa-check-circle"></i> **Sucesso!** Aguarde a confirmação no e-mail(pode demorar até 24 horas). Você será notificado no e-mail fornecido.';
+            successAlert.style.display = 'flex';
+            errorAlert.style.display = 'none';
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          errorMessage.textContent = error.message || 'Erro ao enviar dados. Verifique sua conexão e tente novamente.';
+          errorAlert.style.display = 'flex';
+          successAlert.style.display = 'none';
+        } finally {
+          // Reabilitar botões após a tentativa
+          setTimeout(() => {
+            autoSubmitBtn.innerHTML = '<i class="fas fa-robot"></i> Criar conta';
+            autoSubmitBtn.disabled = false;
+            generateKeysBtn.disabled = false;
+          }, 3000);
+        }
+      });
+
+      // Validação em tempo real (Feedback visual)
+      usernameInput.addEventListener('input', function() {
+        this.style.borderColor = validateUsername(this.value.trim()) ? '#ddd' : '#b21f1f';
+      });
+      masterKeyInput.addEventListener('input', function() {
+        this.style.borderColor = validateMasterKey(this.value) ? '#ddd' : '#b21f1f';
+      });
+      emailInput.addEventListener('input', function() {
+        this.style.borderColor = validateEmail(this.value.trim()) ? '#ddd' : '#b21f1f';
+      });
+    </script>
+  </body>
+</html>

@@ -275,8 +275,7 @@ export const translations = {
 
     step3_title: "Use WhaleVault (Recommended)",
     step3_text:
-      "Instale a extensão WhaleVault no seu navegador para armazenar suas chaves com segurança e facilitar o login em aplicativos da Blurt. O WhaleVault é como um cofre de baleia 🐋 que guarda suas chaves com segurança! Você instala, adiciona suas chaves uma única vez e depois faz login com apenas 1 clique. É mais prático, mais seguro e evita erros!",
-    whalevault_title: "🔒 WhaleVault",
+"Install the WhaleVault extension in your browser to securely store your keys and easily log in to Blurt applications. WhaleVault is like a whale vault 🐋 that safely guards your keys! You install it, add your keys once, and then log in with just one click. It's more practical, safer, and avoids errors!",    whalevault_title: "🔒 WhaleVault",
     whalevault_note:
       "Recommended to keep your account safer and more convenient.",
     step3_tip: "🛡️ Security: Never share your keys with anyone.",
