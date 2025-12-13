@@ -14,6 +14,7 @@ export const translations = {
     head_menu_guide: "Guia",
     head_menu_resources: "Recursos",
     head_menu_register: "Criar Conta",
+    head_menu_buy: "Comprar BLURT",
     // Hero Section
     hero_title: "A Blockchain de Mídia Social Descentralizada",
     hero_subtitle:
@@ -185,6 +186,7 @@ export const translations = {
     head_menu_guide: "Guide",
     head_menu_resources: "Resources",
     head_menu_register: "Create Account",
+    head_menu_buy: "Buy BLURT",
     // Hero Section
     hero_title: "The Decentralized Social Media Blockchain",
     hero_subtitle:
@@ -216,7 +218,7 @@ export const translations = {
 
     feature2_title: "Censorship resistance",
     feature2_text:
-      "Content published on Blurt is stored immutably on the blockchain, making censorship or removal extremely difficult.",
+      "Content published on Blurt is stored immutably on the blockchain, making censorship or removal impossible.",
 
     feature3_title: "Fast transactions",
     feature3_text:

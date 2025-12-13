@@ -34,9 +34,6 @@ function createParticles() {
         container.appendChild(p);
     }
 }
-
-
-document.addEventListener("DOMContentLoaded", createParticles);
 /**
  * Configura todos os Listeners de Evento (depois que o HTML é carregado).
  * Alterado para Arrow Function (const) para consistência moderna.
@@ -66,13 +63,15 @@ window.addEventListener('load', async () => {
     
     // Carrega todas as seções em paralelo para maior velocidade
     await Promise.all(sections.map(s => Utils.loadSection(s.id, s.file)));
+
+    createParticles();
     
     Utils.updateApiStatus(true, "Interface carregada");
 
     // 2. INICIALIZAÇÃO DA INTERFACE E EVENT LISTENERS
     
     // Aplica o idioma inicial (deve ser chamado APÓS o HTML ser injetado)
-    changeLanguage("pt"); 
+    changeLanguage("en"); 
     
     // Configura listeners de eventos e navegação
     setupEventListeners();

@@ -141,7 +141,7 @@ export async function updateBlockchainData() {
       }
 
       // Atualiza transações diárias (estimativa)
-      const dailyTx = Math.floor(properties.head_block_number / 3); 
+      const dailyTx = 28800; 
       if (document.getElementById("dailyTransactions")) {
           document.getElementById("dailyTransactions").textContent =
             dailyTx.toLocaleString();
@@ -150,7 +150,7 @@ export async function updateBlockchainData() {
 
     // 3. Atualiza Testemunhas (Witnesses)
     if (witnessSchedule) {
-      const witnessCount = witnessSchedule.num_scheduled_witnesses || 25;
+      const witnessCount = 21;
       document.getElementById("totalWitnesses").textContent = witnessCount;
       if (document.getElementById("statWitnesses")) {
           document.getElementById("statWitnesses").textContent = witnessCount;

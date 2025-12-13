@@ -30,7 +30,8 @@ body {
   overflow-x: hidden;
   background-color: #f8fafc;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%; /* Garante que fontes não aumentem no mobile */
+-webkit-text-size-adjust: 100%; 
+  text-size-adjust: 100%;
 }
 
 h1,
@@ -1079,3 +1080,4 @@ h5 {
     font-size: 0.8rem; 
   }
 }
+
