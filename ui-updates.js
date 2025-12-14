@@ -2,6 +2,7 @@
 
 import * as BlurtAPI from './blurt-api.js'; // Assumindo que você criou este arquivo
 import { getCurrentLang } from './i18n.js'; // Assumindo que você exportou essa função
+import { formatarParaInteiro } from './utils.js'; // Assumindo que você criou esta função
 
 // Objeto de nomes de transação (Poderia estar em ./data/transaction-names.js)
 // Para o exemplo, vamos mantê-lo aqui por enquanto, mas o ideal é mover.
@@ -115,6 +116,7 @@ export async function updateRecentTransactions() {
 }
 
 
+
 /**
  * Atualiza todos os dados da blockchain na página (blocos, contas, preço).
  * Assume que todas as funções de fetch existem no BlurtAPI.
@@ -141,10 +143,13 @@ export async function updateBlockchainData() {
       }
 
       // Atualiza transações diárias (estimativa)
-      const dailyTx = 28800; 
+      const priceFor = marketData.price.toFixed(4);
+      const supply = properties.current_supply.split('.')[0]; 
+      const marketcap = (parseInt(supply) * priceFor).toLocaleString();
+      console.log(marketcap);
       if (document.getElementById("dailyTransactions")) {
           document.getElementById("dailyTransactions").textContent =
-            dailyTx.toLocaleString();
+            formatarParaInteiro(marketcap).toLocaleString();
       }
     }
 

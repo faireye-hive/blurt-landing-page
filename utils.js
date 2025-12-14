@@ -137,3 +137,12 @@ export function updateApiStatus(isConnected, message) {
             : "rgba(200, 100, 0, 0.8)";
     }
 }
+
+export function formatarParaInteiro(input) {
+    // Converte para string e remove vírgulas
+    const stringLimpa = String(input).replace(/,/g, '');
+    
+    // Pega tudo antes do primeiro ponto
+    return stringLimpa.split('.')[0]; 
+}
+

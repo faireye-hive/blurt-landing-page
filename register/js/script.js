@@ -334,10 +334,10 @@ document.getElementById('form_id').addEventListener('submit', async function (e)
 
   // ✅ VALIDAÇÃO DO VOUCHER ANTES DE ENVIAR
   const voucherOk = await validateVoucherCode();
-  /*if (!voucherOk) {
+  if (!voucherOk) {
     alert("Voucher is invalid or used. Please check again.");
     return;
-  }*/
+  }
 
   const form = e.target;
   const formData = new FormData(form);
@@ -350,13 +350,13 @@ document.getElementById('form_id').addEventListener('submit', async function (e)
   }
 
   try {
-    /*const response = await fetch('https://blurtplugin.online/account/creator.php', {
+    const response = await fetch('https://blurtplugin.online/account/creator.php', {
       method: 'POST',
       body: formData
     });
 
-    const result = await response.json();*/
-    const result ="result.txid";
+    const result = await response.json();
+    //const result ="result.txid";
 
     /*if (result.success) {*/
     if (true) {
